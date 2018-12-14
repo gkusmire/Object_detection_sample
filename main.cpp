@@ -72,8 +72,6 @@ std::pair<int, int> getGeoCenter(const cv::Mat& image, const cv::Vec3b& color)
     return std::make_pair(image.rows / 2, image.cols / 2);
 }
 
-
-
 std::pair<int, int> getMassCenter(const cv::Mat& image, const cv::Vec3b& color)
 {
     int x = 0, y = 0, nbOfPixels = 0;
