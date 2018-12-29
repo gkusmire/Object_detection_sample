@@ -72,6 +72,8 @@ std::pair<int, int> getGeoCenter(const cv::Mat& image, const cv::Vec3b& color)
     return std::make_pair(image.rows / 2, image.cols / 2);
 }
 
+
+
 std::pair<int, int> getMassCenter(const cv::Mat& image, const cv::Vec3b& color)
 {
     int x = 0, y = 0, nbOfPixels = 0;
@@ -169,14 +171,12 @@ long getObjectCircuit(cv::Mat image, cv::Vec3b color) {
         for (int j = 0; j < _I.rows; ++j)
         {
             if(_I(i,j) == color)
-                for(int m=0; m<8; ++m)
-                {
-                    if(_I(i+x[m],j+y[m]) == white) {
+                for(int m=0; m<8; ++m) {
+                    if (_I(i + x[m], j + y[m]) == white && _I(i,j) == color) {
                         _I(i + x[m], j + y[m]) = marker_color;
                         ++counter;
                     }
                 }
-                ++counter;
         }
     return counter;
 }
